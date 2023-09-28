@@ -1,2 +1,2 @@
 # shifttechWorlds
-shifttech server world archive, website coming soon!
+shifttech server world archive, updated every hour. Website coming soon!
