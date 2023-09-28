@@ -14,8 +14,9 @@ jobs:
     - name: Download Shifttech Worlds
       run: |
         mkdir -p worlds
-        wget -np -nH -nd -N -rv -P worlds http://shifttech.xyz:8081/shifttechterraria/hourly/
-      working-directory: ${{ github.workspace }}
+        currentTime=$(TZ=UTC+4 date +"%Y-%m-%d %H")
+        wget -np -nH -nd -N -rv -P worlds --accept "shifttechterraria_${currentTime}*" http://shifttech.xyz:8081/shifttechterraria/hourly/
+        working-directory: ${{ github.workspace }}
 
     - name: Commit and push changes
       run: |
