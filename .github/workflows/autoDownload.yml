@@ -22,5 +22,5 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git add worlds
-        git commit -m "Auto-download Download Shifttech Worlds"
+        git commit -m "Auto-download"
         git push
