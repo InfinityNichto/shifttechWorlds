@@ -12,11 +12,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Download Shifttech Worlds
+    - name: Download World
       run: |
         currentTime=$(TZ=UTC+4 date +"%Y-%m-%d %H")
         wget -np -nH -nd -nc -rv -P worlds --accept "shifttechterraria_${currentTime}*" http://shifttech.xyz:8081/shifttechterraria/hourly/
-        working-directory: ${{ github.workspace }}
 
     - name: Commit and push changes
       run: |
