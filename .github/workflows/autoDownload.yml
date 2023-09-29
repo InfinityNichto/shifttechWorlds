@@ -2,7 +2,7 @@
 name: Download Shifttech Worlds
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   download:
