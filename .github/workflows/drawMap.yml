@@ -23,10 +23,12 @@ jobs:
     - name: Download world
       run: |
         mkdir images
-        currentTime=$(TZ=UTC+4 date +"%Y-%m-%d %H")
-        formattedTime=$(TZ=UTC+4 date -d "$currentTime" +"%a, %b %Y - %l %p")
-        curl -o "/images/$formattedTime.wld" -v "http://shifttech.xyz:8081/shifttechterraria/hourly/$currentTime*"
-
+        currentTime=$(TZ=UTC+4 date +"%Y-%m-%d_%H")
+        formattedTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
+        formattedTime=$(date -d "${formattedTime}" +"%a, %b %Y -%l %p")
+        target="http://shifttech.xyz:8081/shifttechterraria/hourly/"$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}' | tail -n 1)
+        wget -nd -v -O "./images/$formattedTime.wld" $target
+        
     - name: Install dependencies
       run: |
         apt install python3-pip python3-dev python3-setuptools libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev
