@@ -29,10 +29,8 @@ jobs:
       run: |
         mkdir images
         currentTime=$(TZ=UTC+4 date +"%Y-%m-%d_%H")
-        formattedTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
-        formattedTime=$(date -d "${formattedTime}" +"%a, %b %Y -%l %p")
         target="http://shifttech.xyz:8081/shifttechterraria/hourly/"$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}' | tail -n 1)
-        wget -nd -v -O "images/$formattedTime.wld" $target
+        wget -nd -v -O "images/temp.wld" $target
         # git add .
         # git commit -m "Add downloaded world file"
         # git push
@@ -48,8 +46,8 @@ jobs:
         currentTime=$(TZ=UTC+4 date +"%Y-%m-%d_%H")
         formattedTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
         formattedTime=$(date -d "${formattedTime}" +"%a, %b %Y -%l %p")
-        flyingsnake --no-wires "images/$formattedTime.wld" "images/$formattedTime.png"
-        rm images/$formattedTime.wld
+        flyingsnake --no-wires "images/temp.wld" "images/$formattedTime.png"
+        rm images/temp.wld
 
     - name: Commit and push
       run: |
