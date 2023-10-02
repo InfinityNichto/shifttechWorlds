@@ -9,12 +9,12 @@ on:
     - cron: "0 * * * *"
     
 jobs:
-  build:
+  generate-map:
     runs-on: ubuntu-latest
     
     strategy:
       matrix:
-        max-parallel: [4, 4]
+        max-parallel: [4]
 
     steps:
     - name: Checkout code
