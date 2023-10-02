@@ -22,6 +22,7 @@ jobs:
       
     - name: Download world
       run: |
+        mkdir images
         currentTime=$(TZ=UTC+4 date +"%Y-%m-%d %H")
         formattedTime=$(TZ=UTC+4 date -d "$currentTime" +"%a, %b %Y - %l %p")
         wget -nd -v -P images -O $formattedTime.wld http://shifttech.xyz:8081/hourly/$currentTime*
