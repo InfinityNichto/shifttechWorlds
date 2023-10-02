@@ -37,9 +37,10 @@ jobs:
 
     - name: Run flyingsnake
       run: |
-        currentTime=$(TZ=UTC+4 date +"%Y-%m-%d %H")
-        formattedTime=$(TZ=UTC+4 date -d "$currentTime" +"%a, %b %Y - %l %p")
-        flyingsnake --no-wires /images/$formattedTime.wld /images/$formattedTime.png
+        currentTime=$(TZ=UTC+4 date +"%Y-%m-%d_%H")
+        formattedTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
+        formattedTime=$(date -d "${formattedTime}" +"%a, %b %Y -%l %p")
+        flyingsnake --no-wires "/images/$formattedTime.wld" "/images/$formattedTime.png"
         rm /images/$formattedTime.wld
 
     - name: Commit and push changes
