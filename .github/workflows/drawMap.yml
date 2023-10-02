@@ -1,4 +1,4 @@
-name: main
+name: Draw Map
 
 on:
   push:
@@ -43,5 +43,5 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
         git add worlds
-        git commit -m "main"
+        git commit -m "Hourly world map update"
         git push
