@@ -45,7 +45,7 @@ jobs:
 
     - name: Run flyingsnake
       run: |
-        ls -la
+        ls -la /images
         currentTime=$(TZ=UTC+4 date +"%Y-%m-%d_%H")
         formattedTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
         formattedTime=$(date -d "${formattedTime}" +"%a, %b %Y -%l %p")
