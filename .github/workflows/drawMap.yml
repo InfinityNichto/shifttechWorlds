@@ -27,7 +27,7 @@ jobs:
         formattedTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
         formattedTime=$(date -d "${formattedTime}" +"%a, %b %Y -%l %p")
         target="http://shifttech.xyz:8081/shifttechterraria/hourly/"$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}' | tail -n 1)
-        wget -nd -v -O "./images/$formattedTime.wld" $target
+        wget -nd -v -P images -O "./images/$formattedTime.wld" $target
         
     - name: Install dependencies
       run: |
