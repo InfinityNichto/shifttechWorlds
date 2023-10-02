@@ -33,7 +33,7 @@ jobs:
         formattedTime=$(date -d "${formattedTime}" +"%a, %b %Y -%l %p")
         target="http://shifttech.xyz:8081/shifttechterraria/hourly/"$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}' | tail -n 1)
         wget -nd -v -P images -O "$formattedTime.wld" $target
-        git add
+        git add .
         git commit -m "Add downloaded world file"
         git push
         
