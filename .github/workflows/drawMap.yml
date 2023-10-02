@@ -20,6 +20,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
+    - name: Config user
+      run: |
+        git config user.name "InfinityNichto"
+        git config user.email "u5170201@gmail.com"
+    
     - name: Download world
       run: |
         mkdir images
@@ -46,10 +51,8 @@ jobs:
         flyingsnake --no-wires "/images/$formattedTime.wld" "/images/$formattedTime.png"
         rm /images/$formattedTime.wld
 
-    - name: Commit and push changes
+    - name: Commit and push
       run: |
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add worlds
+        git add images
         git commit -m "Hourly world map update"
         git push
