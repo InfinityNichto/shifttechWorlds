@@ -17,22 +17,20 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
-    - name: Download World
+    - name: Download world
       run: |
-        
+        currentTime=$(TZ=UTC+4 date +"%Y-%m-%d %H")
+        formattedTime=$(TZ=UTC+4 date -d "$currentTime" +"%a, %b %Y - %l %p")
+        wget -nd -v -P images -O $formattedTime.wld http://shifttech.xyz:8081/hourly/$currentTime*
 
     - name: Install dependencies
       run: |
-        # Add your dependency installation commands here
+        apt install python3-pip python3-dev python3-setuptools libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev
+        python3 -m pip install --upgrade flyingsnake
 
-    - name: Main process step 1
+    - name: Run flyingsnake
       run: |
-        # Main process step 1 commands here
-
-    - name: Main process step 2
-      run: |
-        # Main process step 2 commands here
-
-    - name: Main process step 3
-      run: |
-        # Main process step 3 commands here
+        currentTime=$(TZ=UTC+4 date +"%Y-%m-%d %H")
+        formattedTime=$(TZ=UTC+4 date -d "$currentTime" +"%a, %b %Y - %l %p")
+        flyingsnake --no-wires /images/$formattedTime.wld /images/$formattedTime.png
+        rm /images/$formattedTime.wld
