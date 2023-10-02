@@ -25,7 +25,7 @@ jobs:
         mkdir images
         currentTime=$(TZ=UTC+4 date +"%Y-%m-%d %H")
         formattedTime=$(TZ=UTC+4 date -d "$currentTime" +"%a, %b %Y - %l %p")
-        curl -o "/images/$formattedTime.wld" -v "http://shifttech.xyz:8081/hourly/$currentTime*"
+        curl -o "/images/$formattedTime.wld" -v "http://shifttech.xyz:8081/shifttechterraria/hourly/$currentTime*"
 
     - name: Install dependencies
       run: |
