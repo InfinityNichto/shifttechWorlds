@@ -15,11 +15,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
-    - name: Config user
-      run: |
-        git config user.name "InfinityNichto"
-        git config user.email "u5170201@gmail.com"
-    
     - name: Download world
       run: |
         mkdir images
@@ -40,11 +35,13 @@ jobs:
       run:
         currentTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
         formattedTime=$(TZ="UTC+4" date +"%a-%b-%Y %I-%p")
-        formattedTime="${formattedTime}.png"
+        formattedTime="${formattedTime}.jpg"
         flyingsnake --no-wires "images/temp.wld" "images/$formattedTime"
 
     - name: Commit and push
       run: |
+        git config user.name "InfinityNichto"
+        git config user.email "u5170201@gmail.com"
         rm images/temp.wld
         git add .
         git commit -m "Hourly world map update"
