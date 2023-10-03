@@ -1,4 +1,4 @@
 # shifttechWorlds
-[![Auto-download schedule](https://github.com/InfinityNichto/shifttechWorlds/actions/workflows/autoDownload.yml/badge.svg?branch=main&event=schedule)](https://github.com/InfinityNichto/shifttechWorlds/actions/workflows/autoDownload.yml)
+[![Draw Map](https://github.com/InfinityNichto/shifttechWorlds/actions/workflows/drawMap.yml/badge.svg?branch=main)](https://github.com/InfinityNichto/shifttechWorlds/actions/workflows/drawMap.yml)
 
 shifttech server world map archive, updated every hour. Website coming soon!
