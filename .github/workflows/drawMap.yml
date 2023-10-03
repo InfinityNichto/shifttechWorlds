@@ -35,9 +35,9 @@ jobs:
         currentTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
         formattedTime=$(TZ="UTC+4" date +"%a-%b-%Y %I-%p")
         formattedTime="${formattedTime}.png"
-        test="testOutput.png"
-        flyingsnake --no-wires "images/temp.wld" "images/$test"
-
+        command="flyingsnake --no-wires \"images/temp.wld\" \"images/$formattedTime\""
+        eval "$command"
+        
     - name: Commit and push
       run: |
         git config user.name "InfinityNichto"
