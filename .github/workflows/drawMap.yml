@@ -36,7 +36,7 @@ jobs:
         currentTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
         formattedTime=$(TZ="UTC+4" date +"%a-%b-%Y %I-%p")
         formattedTime="${formattedTime}.jpg"
-        flyingsnake --no-wires "images/temp.wld" "images/$formattedTime"
+        flyingsnake --no-wires "images/temp.wld" "images/output.png"
 
     - name: Commit and push
       run: |
