@@ -13,7 +13,6 @@ jobs:
       
     - name: Download world
       run: |
-        currentTime=$(TZ=UTC+4 date +"%Y-%m-%d_%H")
         target="http://shifttech.xyz:8081/shifttechterraria/hourly/"$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}' | tail -n 1)
         wget -nd -v -O "images/temp.wld" $target
         # git add .
