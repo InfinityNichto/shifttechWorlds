@@ -27,11 +27,9 @@ jobs:
 
     - name: Run flyingsnake
       run: |
-        currentTime=$(TZ="UTC+4" date +"%Y-%m-%d %H")
-        formattedTime=$(TZ="UTC+4" date +"%a-%b-%Y %I-%p")
-        formattedTime="${formattedTime}.png"
+        target="http://shifttech.xyz:8081/shifttechterraria/hourly/"$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}' | tail -n 1)
         flyingsnake --no-wires "images/temp.wld" "images/temp.png"
-        mv images/temp.png "images/$formattedTime"
+        mv images/temp.png "images/$target"
         
     - name: Commit and push
       run: |
