@@ -1,5 +1,9 @@
 name: Draw Map
 on:
+  push:
+    branches:
+    - main
+    
   schedule:
     - cron: "0 * * * *"
     
@@ -27,7 +31,7 @@ jobs:
 
     - name: Run flyingsnake
       run: |
-        target=${$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}' | tail -n 1)%.wld}.png
+        target="$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=.*\.wld/{latest=$2} END{print latest}' | sed 's/\.wld$/.png/')"
         flyingsnake --no-wires "images/temp.wld" "images/temp.png"
         mv images/temp.png "images/$target"
         
