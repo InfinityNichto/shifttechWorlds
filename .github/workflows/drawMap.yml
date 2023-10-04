@@ -27,7 +27,7 @@ jobs:
 
     - name: Run flyingsnake
       run: |
-        target="http://shifttech.xyz:8081/shifttechterraria/hourly/"$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}' | tail -n 1)
+        target=${$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}' | tail -n 1)%.wld}.png
         flyingsnake --no-wires "images/temp.wld" "images/temp.png"
         mv images/temp.png "images/$target"
         
