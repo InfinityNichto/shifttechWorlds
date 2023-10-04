@@ -1,11 +1,7 @@
 name: Draw Map
 on:
-  push:
-    branches:
-    - main
-    
   schedule:
-    - cron: "41 * * * *"
+    - cron: "5 * * * *"
     
 jobs:
   generate-map:
