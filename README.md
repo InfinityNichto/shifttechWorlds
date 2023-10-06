@@ -3,3 +3,5 @@
 
 shifttech server world map archive, updated every hour. Website coming soon!
 For now, check the [image folder](/images/) for map updates.
+Most recent map: ![](/images/!most-recent.png)
+[(click here for the raw version)](https://raw.githubusercontent.com/InfinityNichto/shifttechWorlds/main/images/!most-recent.png)
