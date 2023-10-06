@@ -1,7 +1,7 @@
 name: Draw Map
 on:
   schedule:
-    - cron: "5 * * * *"
+    - cron: "0 * * * *"
     
 jobs:
   generate-map:
@@ -31,8 +31,8 @@ jobs:
         formattedTime="${formattedTime}.png"
         target="$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=.*\.wld/{latest=$2} END{print latest}' | sed 's/\.wld$/.png/')"
         flyingsnake --no-wires "images/temp.wld" "images/temp.png"
+        cp images/temp.png "images/!most-recent.png"
         mv images/temp.png "images/$formattedTime"
-        
     - name: Commit and push
       run: |
         git config user.name "InfinityNichto"
