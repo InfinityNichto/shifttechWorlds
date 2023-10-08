@@ -33,13 +33,13 @@ jobs:
         mv shifttechterraria_2023-10-04_19-00-01.png 04-10-2023-19:00.png
         mv Fri-Oct-2023-00:00.png 06-10-2023-00:00.png
         mv Fri-Oct-2023-01:00.png 06-10-2023-01:00.png
-        mv Tue-Oct-2023-08-PM.png 03-10-2023-08:00.png
-        mv Tue-Oct-2023-09-PM.png 03-10-2023-09:00.png
-        mv Tue-Oct-2023-10-PM.png 03-10-2023-10:00.png
-        mv Tue-Oct-2023-11-PM.png 03-10-2023-11:00.png
-        mv Wed-Oct-2023-12-AM.png 04-10-2023-00:00.png
-        mv Wed-Oct-2023-01-AM.png 04-10-2023-01:00.png
-        mv Wed-Oct-2023-02-AM.png 04-10-2023-02:00.png
+        mv Tue-Oct-2023 08-PM.png 03-10-2023-08:00.png
+        mv Tue-Oct-2023 09-PM.png 03-10-2023-09:00.png
+        mv Tue-Oct-2023 10-PM.png 03-10-2023-10:00.png
+        mv Tue-Oct-2023 11-PM.png 03-10-2023-11:00.png
+        mv Wed-Oct-2023 12-AM.png 04-10-2023-00:00.png
+        mv Wed-Oct-2023 01-AM.png 04-10-2023-01:00.png
+        mv Wed-Oct-2023 02-AM.png 04-10-2023-02:00.png
         mv Wed-Oct-2023-21:00.png 04-10-2023-21:00.png
         mv Wed-Oct-2023-22:00.png 04-10-2023-22:00.png
         mv Wed-Oct-2023-23:00.png 04-10-2023-23:00.png
