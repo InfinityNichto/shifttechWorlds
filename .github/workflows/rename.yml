@@ -1,0 +1,48 @@
+name: Rename Files
+on:
+  push:
+    branches:
+      - main
+			
+jobs:
+  rename_files:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Rename files
+      run: |
+	mv Thu-Oct-2023-00:00.png 05-10-2023-00:00.png
+    	mv Thu-Oct-2023-01:00.png 05-10-2023-01:00.png
+        mv Thu-Oct-2023-02:00.png 05-10-2023-02:00.png
+        mv Thu-Oct-2023-03:00.png 05-10-2023-03:00.png
+        mv Thu-Oct-2023-04:00.png 05-10-2023-04:00.png
+        mv Thu-Oct-2023-05:00.png 05-10-2023-05:00.png
+        mv Thu-Oct-2023-06:00.png 05-10-2023-06:00.png
+        mv Thu-Oct-2023-07:00.png 05-10-2023-07:00.png
+        mv Thu-Oct-2023-08:00.png 05-10-2023-08:00.png
+        mv Thu-Oct-2023-09:00.png 05-10-2023-09:00.png
+        mv Thu-Oct-2023-10:00.png 05-10-2023-10:00.png
+        mv Thu-Oct-2023-11:00.png 05-10-2023-11:00.png
+        mv Thu-Oct-2023-12:00.png 05-10-2023-12:00.png
+        mv Thu-Oct-2023-13:00.png 05-10-2023-13:00.png
+        mv Thu-Oct-2023-14:00.png 05-10-2023-14:00.png
+        mv Thu-Oct-2023-15:00.png 05-10-2023-15:00.png
+        mv Thu-Oct-2023-16:00.png 05-10-2023-16:00.png
+        mv Thu-Oct-2023-17:00.png 05-10-2023-17:00.png
+        mv Thu-Oct-2023-18:00.png 05-10-2023-18:00.png
+        mv Thu-Oct-2023-19:00.png 05-10-2023-19:00.png
+        mv Thu-Oct-2023-20:00.png 05-10-2023-20:00.png
+        mv Thu-Oct-2023-21:00.png 05-10-2023-21:00.png
+        mv Thu-Oct-2023-22:00.png 05-10-2023-22:00.png
+        mv Thu-Oct-2023-23:00.png 05-10-2023-23:00.png
+    	
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Rename files"
+        git push
