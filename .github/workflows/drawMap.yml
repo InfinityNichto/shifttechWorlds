@@ -2,10 +2,7 @@ name: Draw Map
 on:
   schedule:
     - cron: "0 * * * *"
-  push:
-    branches:
-      - main 
-
+    
 jobs:
   generate-map:
     runs-on: ubuntu-latest
