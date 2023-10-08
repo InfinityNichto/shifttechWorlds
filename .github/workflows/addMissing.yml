@@ -15,11 +15,8 @@ jobs:
     - name: Download world
       run: |
         mkdir world2
-        target="http://shifttech.xyz:8081/shifttechterraria/hourly/"$(curl -s "http://shifttech.xyz:8081/shifttechterraria/hourly/" | awk -F '"' '/href=/{print $2}')
-        wget -nd -v -P world2/ $target
-        # git add .
-        # git commit -m "Add downloaded world file"
-        # git push
+        baseUrl="http://shifttech.xyz:8081/shifttechterraria/hourly/"
+        curl -s "$baseUrl" | awk -F '"' '/href=/{print "'"$baseUrl"'"$2}' | xargs -I {} wget -nd -v -P world2/ {}
         
     - name: Commit and push
       run: |
