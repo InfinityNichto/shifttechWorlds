@@ -18,7 +18,7 @@ jobs:
         mv shifttechterraria_2023-10-04_04-00-01.png 04-10-2023-04:00.png
         mv shifttechterraria_2023-10-04_05-00-01.png 04-10-2023-05:00.png
         mv shifttechterraria_2023-10-04_06-00-01.png 04-10-2023-06:00.png
-        mv shifttechterraria_2023-10-04_07-00-01.png 04-10-2023-07:00.png
+        # mv shifttechterraria_2023-10-04_07-00-01.png 04-10-2023-07:00.png
         mv shifttechterraria_2023-10-04_08-00-01.png 04-10-2023-08:00.png
         mv shifttechterraria_2023-10-04_09-00-01.png 04-10-2023-09:00.png
         mv shifttechterraria_2023-10-04_10-00-01.png 04-10-2023-10:00.png
