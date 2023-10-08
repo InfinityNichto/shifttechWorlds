@@ -23,7 +23,7 @@ jobs:
         mv Thu-Oct-2023-05:00.png 05-10-2023-05:00.png
         mv Thu-Oct-2023-06:00.png 05-10-2023-06:00.png
         mv Thu-Oct-2023-07:00.png 05-10-2023-07:00.png
-        mv Thu-Oct-2023-08:00.png 05-10-2023-08:00.png
+        # mv Thu-Oct-2023-08:00.png 05-10-2023-08:00.png
         mv Thu-Oct-2023-09:00.png 05-10-2023-09:00.png
         mv Thu-Oct-2023-10:00.png 05-10-2023-10:00.png
         mv Thu-Oct-2023-11:00.png 05-10-2023-11:00.png
@@ -35,7 +35,7 @@ jobs:
         mv Thu-Oct-2023-17:00.png 05-10-2023-17:00.png
         mv Thu-Oct-2023-18:00.png 05-10-2023-18:00.png
         mv Thu-Oct-2023-19:00.png 05-10-2023-19:00.png
-        mv Thu-Oct-2023-20:00.png 05-10-2023-20:00.png
+        # mv Thu-Oct-2023-20:00.png 05-10-2023-20:00.png
         mv Thu-Oct-2023-21:00.png 05-10-2023-21:00.png
         mv Thu-Oct-2023-22:00.png 05-10-2023-22:00.png
         mv Thu-Oct-2023-23:00.png 05-10-2023-23:00.png
