@@ -2,7 +2,10 @@ name: Draw Map
 on:
   schedule:
     - cron: "0 * * * *"
-    
+  push:
+    branches:
+      - main 
+
 jobs:
   generate-map:
     runs-on: ubuntu-latest
@@ -40,4 +43,5 @@ jobs:
         rm images/temp.wld
         git add .
         git commit -m "Hourly world map update"
+        git pull origin main
         git push
