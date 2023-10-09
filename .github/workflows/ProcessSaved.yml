@@ -12,22 +12,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-  # - name: Install dependencies
-    # run: |
-      # sudo apt update
-      # sudo apt install -y python3-pip python3-dev python3-setuptools libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev
-      # python3 -m pip install --upgrade flyingsnake
-
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip python3-dev python3-setuptools libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev
+          python3 -m pip install --upgrade flyingsnake
+          
       - name: Run flyingsnake
         run: |
           for file in "worlds"/*; do
             if [ -f "$file" ]; then
-              filename=$(basename "$file")
-              # world2/shifttechterraria_2023-09-30_08-00-01.wld
-              parts=(${filename//[_]/ })
+              file_name=$(basename "$file")
+              parts=(${file_name//[_]/ })
               date_part=${parts[1]}
               time_part=${parts[2]}
-              new_name="worlds/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
-              echo "Found name: $file, new name: $new_name"
+              new_name="images/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
+              flyingsnake "$file_name" images/temp.png
+              mv images/temp.png $new_name
             fi
           done
+
+       - name: Commit and push
+          run: |
+            git config user.name "InfinityNichto"
+            git config user.email "u5170201@gmail.com"
+            git add .
+            git commit -m "Add images from old archive"
+            git pull origin main
+            git push
