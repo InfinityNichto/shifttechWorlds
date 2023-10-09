@@ -27,7 +27,7 @@ jobs:
               date_part=${parts[1]}
               time_part=${parts[2]}
               new_name="images/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
-              flyingsnake "worlds/$file_name" images/temp.png
+              flyingsnake --no-wires "worlds/$file_name" images/temp.png
               mv images/temp.png $new_name
             fi
           done
