@@ -32,11 +32,11 @@ jobs:
             fi
           done
 
-       - name: Commit and push
-          run: |
-            git config user.name "InfinityNichto"
-            git config user.email "u5170201@gmail.com"
-            git add .
-            git commit -m "Add images from old archive"
-            git pull origin main
-            git push
+      - name: Commit and push
+        run: |
+          git config user.name "InfinityNichto"
+          git config user.email "u5170201@gmail.com"
+          git add .
+          git commit -m "Add images from old archive"    
+          git pull origin main
+          git push
