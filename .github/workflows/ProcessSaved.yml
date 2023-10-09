@@ -20,7 +20,7 @@ jobs:
 
       - name: Run flyingsnake
         run: |
-          for file in "worlds/*"; do
+          for file in "worlds"/*; do
             if [ -f "$file" ]; then
               filename=$(basename "$file")
               parts=(${filename//[_-]/ })
