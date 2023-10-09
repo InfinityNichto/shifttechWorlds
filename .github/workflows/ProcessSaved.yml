@@ -1,0 +1,32 @@
+name: Process Saved Worlds
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  process-saved-worlds:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+  # - name: Install dependencies
+    # run: |
+      # sudo apt update
+      # sudo apt install -y python3-pip python3-dev python3-setuptools libjpeg-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev
+      # python3 -m pip install --upgrade flyingsnake
+
+      - name: Run flyingsnake
+        run: |
+          for file in "images/*"; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file")
+              parts=(${filename//[_-]/ })
+              date_part=${parts[1]}
+              time_part=${parts[2]}
+              new_name="${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
+              echo "Found name: $file, new name: $new_name"
+            fi
+          done
