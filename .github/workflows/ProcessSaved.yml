@@ -23,7 +23,8 @@ jobs:
           for file in "worlds"/*; do
             if [ -f "$file" ]; then
               filename=$(basename "$file")
-              parts=(${filename//[_-]/ })
+              # world2/shifttechterraria_2023-09-30_08-00-01.wld
+              parts=(${filename//[_]/ })
               date_part=${parts[1]}
               time_part=${parts[2]}
               new_name="worlds/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
