@@ -20,13 +20,13 @@ jobs:
 
       - name: Run flyingsnake
         run: |
-          for file in "images/*"; do
+          for file in "worlds/*"; do
             if [ -f "$file" ]; then
               filename=$(basename "$file")
               parts=(${filename//[_-]/ })
               date_part=${parts[1]}
               time_part=${parts[2]}
-              new_name="${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
+              new_name="worlds/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
               echo "Found name: $file, new name: $new_name"
             fi
           done
