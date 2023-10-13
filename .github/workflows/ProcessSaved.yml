@@ -20,6 +20,7 @@ jobs:
           
       - name: Run flyingsnake
         run: |
+          count=0
           for file in "worlds"/*; do
             if [ -f "$file" ]; then
               file_name=$(basename "$file")
@@ -27,8 +28,17 @@ jobs:
               date_part=${parts[1]}
               time_part=${parts[2]}
               new_name="images/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
+              echo -e "count: $count\nfilename: $nile_name"
+              # below is the ignore list
+              case $count in
+                33)
+                  echo "Defective file, Ignoring."
+                  continue
+                ;;
+              esac
               flyingsnake --no-wires "worlds/$file_name" images/temp.png
               mv images/temp.png $new_name
+              ((count++))
             fi
           done
 
