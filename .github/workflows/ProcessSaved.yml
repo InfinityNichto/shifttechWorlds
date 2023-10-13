@@ -33,6 +33,7 @@ jobs:
               case $count in
                 33)
                   echo "Defective file, ignoring."
+                  count=$((count+1))
                   continue
                 ;;
               esac
