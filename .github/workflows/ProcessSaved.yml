@@ -21,7 +21,7 @@ jobs:
       - name: Run flyingsnake
         run: |
           count=0
-          ignore=(33 46)
+          ignore=(33 46 60)
           for file in "worlds"/*; do
             if [ -f "$file" ]; then
               file_name=$(basename "$file")
