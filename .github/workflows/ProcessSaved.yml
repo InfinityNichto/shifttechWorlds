@@ -32,13 +32,13 @@ jobs:
               # below is the ignore list
               case $count in
                 33)
-                  echo "Defective file, Ignoring."
+                  echo "Defective file, ignoring."
                   continue
                 ;;
               esac
               flyingsnake --no-wires "worlds/$file_name" images/temp.png
               mv images/temp.png $new_name
-              ((count++))
+              count=$((count+1))
             fi
           done
 
