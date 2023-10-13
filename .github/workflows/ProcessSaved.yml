@@ -21,6 +21,7 @@ jobs:
       - name: Run flyingsnake
         run: |
           count=0
+          ignore=(34 46)
           for file in "worlds"/*; do
             if [ -f "$file" ]; then
               file_name=$(basename "$file")
@@ -29,14 +30,11 @@ jobs:
               time_part=${parts[2]}
               new_name="images/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
               echo -e "count: $count\nfilename: $file_name"
-              # below is the ignore list
-              case $count in
-                33)
-                  echo "Defective file, ignoring."
-                  count=$((count+1))
-                  continue
-                ;;
-              esac
+              if [[ " ${ignore[*]} " == *" $count "* ]]; then
+                echo "File is in ignore list, skipping..."
+                count=$((count+1))
+                continue
+              fi
               flyingsnake --no-wires "worlds/$file_name" images/temp.png
               mv images/temp.png $new_name
               count=$((count+1))
