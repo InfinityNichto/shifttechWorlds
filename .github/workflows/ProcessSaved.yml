@@ -1,4 +1,4 @@
-name: Process Saved Worlds
+iname: Process Saved Worlds
 on:
   push:
     branches:
@@ -21,7 +21,7 @@ jobs:
       - name: Run flyingsnake
         run: |
           count=0
-          ignore=(33 46 60 73 94 99 110 130 140 157 181)
+          ignore=(33 46 60 73 94 99 110 130 140 157 181 189)
           for file in "worlds"/*; do
             if [ -f "$file" ]; then
               file_name=$(basename "$file")
