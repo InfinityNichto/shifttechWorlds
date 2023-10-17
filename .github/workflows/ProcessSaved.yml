@@ -1,4 +1,4 @@
-iname: Process Saved Worlds
+name: Process Saved Worlds
 on:
   push:
     branches:
