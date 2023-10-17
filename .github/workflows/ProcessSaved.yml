@@ -28,7 +28,9 @@ jobs:
               parts=(${file_name//[_]/ })
               date_part=${parts[1]}
               time_part=${parts[2]}
-              new_name="images/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
+              new_name="images/${date_part:4}-${date_part:0:5}-${time_part:0:2}:${time_part:3:2}.png"
+              to_be_deleted="images/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
+              rm "$to_be_deleted"
               echo -e "count: $count\nfilename: $file_name"
               if [[ " ${ignore[*]} " == *" $count "* ]]; then
                 echo "File is in ignore list, skipping..."
