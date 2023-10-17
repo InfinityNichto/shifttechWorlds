@@ -30,13 +30,13 @@ jobs:
               time_part=${parts[2]}
               new_name="images/${date_part:4}-${date_part:0:5}-${time_part:0:2}:${time_part:3:2}.png"
               to_be_deleted="images/${date_part:5}-${date_part:0:4}-${time_part:0:2}:${time_part:3:2}.png"
-              rm "$to_be_deleted"
               echo -e "count: $count\nfilename: $file_name"
               if [[ " ${ignore[*]} " == *" $count "* ]]; then
                 echo "File is in ignore list, skipping..."
                 count=$((count+1))
                 continue
               fi
+              rm "$to_be_deleted"
               flyingsnake --no-wires "worlds/$file_name" images/temp.png
               mv images/temp.png $new_name
               count=$((count+1))
