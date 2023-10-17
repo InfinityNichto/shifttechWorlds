@@ -40,5 +40,6 @@ jobs:
         rm images/temp.wld
         git add .
         git commit -m "Hourly world map update"
+        git config pull.rebase false
         git pull origin main
         git push
