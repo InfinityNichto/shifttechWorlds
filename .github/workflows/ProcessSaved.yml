@@ -1,8 +1,4 @@
 name: Process Saved Worlds
-on:
-  push:
-    branches:
-      - main
 
 jobs:
   process-saved-worlds:
