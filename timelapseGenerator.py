@@ -7,7 +7,7 @@ image_folder = 'images/'
 
 # Define the frame rate and output video file name
 frame_rate = 60  # Adjust as needed
-output_video = 'shifttech.mp4'
+output_video = 'shifttech.avi'
 
 # Calculate the delay per image in milliseconds
 delay_per_image = 10
