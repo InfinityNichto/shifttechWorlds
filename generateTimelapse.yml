@@ -1,0 +1,33 @@
+name: Generate Timelapse
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  process-saved-worlds:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip python3-dev python3-setuptools
+          pip install opencv-python
+          
+      - name: Run timelapseGenerator.py
+        run: |
+          python timelapseGenerator.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "InfinityNichto"
+          git config user.email "u5170201@gmail.com"
+          git add .
+          git commit -m "Make a timelapse from image folder"    
+          git config pull.rebase false
+          git pull origin main
+          git push
