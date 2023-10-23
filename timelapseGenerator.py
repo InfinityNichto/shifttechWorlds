@@ -1,29 +1,20 @@
-# ChatGPT generated
-import cv2
 import os
+import subprocess
 
-# Directory containing your sorted images
-image_folder = 'images/'
+input_directory = "images/"  # Replace with the path to your image directory
+output_file = "shifttech.mp4"
+image_extension = ".png"  # Replace with the extension of your image files
 
-# Define the frame rate and output video file name
-frame_rate = 60  # Adjust as needed
-output_video = 'shifttech.avi'
+# Set the delay between frames in milliseconds (10 ms in this case)
+frame_delay = 10
 
-# Calculate the delay per image in milliseconds
-delay_per_image = 10
+# Use FFmpeg to create the time-lapse video
+command = (
+    f"ffmpeg -framerate 1000/{frame_delay} -pattern_type glob -i '{input_directory}/*{image_extension}' "
+    f"-vf 'scale=8400:2400' -c:v libx264 -pix_fmt yuv420p {output_file}"
+)
 
-images = [img for img in os.listdir(image_folder) if img.endswith(".png")]
-frame = cv2.imread(os.path.join(image_folder, images[0]))
-height, width, layers = frame.shape
+# Execute the FFmpeg command
+subprocess.call(command, shell=True)
 
-video = cv2.VideoWriter(output_video, cv2.VideoWriter_fourcc(*'XVID'), frame_rate, (width, height), isColor=True)
-
-for image in images:
-    img = cv2.imread(os.path.join(image_folder, image))
-    video.write(img)
-    
-    # Add a delay to control the frame rate
-    cv2.waitKey(delay_per_image)
-
-cv2.destroyAllWindows()
-video.release()
+print("Time-lapse video created: " + output_file)
