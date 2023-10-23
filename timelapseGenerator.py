@@ -16,7 +16,7 @@ images = [img for img in os.listdir(image_folder) if img.endswith(".png")]
 frame = cv2.imread(os.path.join(image_folder, images[0]))
 height, width, layers = frame.shape
 
-video = cv2.VideoWriter(output_video, cv2.VideoWriter_fourcc(*'H264'), frame_rate, (width, height))
+video = cv2.VideoWriter(output_video, cv2.VideoWriter_fourcc(*'XVID'), frame_rate, (width, height))
 
 for image in images:
     img = cv2.imread(os.path.join(image_folder, image))
